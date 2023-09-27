@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Demo : MonoBehaviour
 {
     [SerializeField] private Text text;
+    [SerializeField] private Scrollbar scrollbar;
 
     private Coroutine showCurrentTime;
 
@@ -12,6 +13,7 @@ public class Demo : MonoBehaviour
     void Start()
     {
         Log.TextUI = text;
+        Log.Scrollbar = scrollbar;
         Log.IsConsole = false;
         showCurrentTime = StartCoroutine(CurrentTime());
     }
@@ -20,7 +22,7 @@ public class Demo : MonoBehaviour
     {
         while (true)
         {
-            Log.L(Time.time.ToString());
+            Log.L(Time.time.ToString(), mode: Log.TextMode.Append);
             yield return new WaitForSecondsRealtime(2.0f);
         }
     }

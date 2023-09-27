@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using System;
 
 public static class Log
@@ -12,57 +11,72 @@ public static class Log
     #endregion
 
     public static Text TextUI = null;
-    public static TMP_Text TextTMPUI = null;
+    public static Scrollbar Scrollbar = null;
     public static bool IsConsole = true;
 
     private const string ColorTextFormate = "<color=\"#{0}\">{1}</color>\n";
 
-    public static void L(string message, Color color = default(Color))
+    public enum TextMode
+    {
+        Append,
+        Write,
+    }
+
+    public static void L(string message, Color color = default(Color), TextMode mode = TextMode.Append)
     {
         if(color == default(Color)) 
             color = ColorLog;
 
-        ShowUI(message, color);
+        ShowUI(message, color, mode);
 
         if(IsConsole)
             Debug.Log(message);
     }
 
-    public static void W(string message, Color color = default(Color))
+    public static void W(string message, Color color = default(Color), TextMode mode = TextMode.Append)
     {
         if (color == default(Color))
             color = ColorWaring;
 
-        ShowUI(message, color);
+        ShowUI(message, color, mode);
 
         if (IsConsole)
             Debug.LogWarning(message);
     }
 
-    public static void E(string message, Color color = default(Color))
+    public static void E(string message, Color color = default(Color), TextMode mode = TextMode.Append)
     {
         if (color == default(Color))
             color = ColorError;
 
-        ShowUI(message, color);
+        ShowUI(message, color, mode);
 
         if (IsConsole)
             Debug.LogError(message);
     }
 
-    private static void ShowUI(string message, Color color)
+    private static void ShowUI(string message, Color color, TextMode mode)
     {
         var htmlColor = ColorUtility.ToHtmlStringRGB(color);
         message = String.Format(ColorTextFormate, htmlColor,
                          message);
         if (TextUI != null)
         {
-            TextUI.text += message;
+            switch (mode)
+            {
+                case TextMode.Append:
+                    TextUI.text += message;
+                    break;
+                case TextMode.Write: 
+                    TextUI.text = message; 
+                    break;
+                default:
+                    TextUI.text += message;
+                    break;
+            }
         }
-        if (TextTMPUI != null)
-        {
-            TextTMPUI.text += message;
-        }
+        if (Scrollbar != null)
+            Scrollbar.value = 0;
     }
 
 }
