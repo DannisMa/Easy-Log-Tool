@@ -22,7 +22,7 @@ public class Demo : MonoBehaviour
     {
         while (true)
         {
-            Log.L(Time.time.ToString(), mode: Log.TextMode.Append);
+            Log.L(Time.time.ToString(),new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)),Log.TextMode.Append);
             yield return new WaitForSecondsRealtime(2.0f);
         }
     }
