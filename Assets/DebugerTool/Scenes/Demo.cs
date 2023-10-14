@@ -1,10 +1,12 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Demo : MonoBehaviour
 {
     [SerializeField] private Text text;
+    [SerializeField] private TMP_Text textTMP;
     [SerializeField] private Scrollbar scrollbar;
 
     private Coroutine showCurrentTime;
@@ -13,6 +15,7 @@ public class Demo : MonoBehaviour
     void Start()
     {
         Log.TextUI = text;
+        Log.TMPTextUI = textTMP;
         Log.Scrollbar = scrollbar;
         Log.IsConsole = false;
         showCurrentTime = StartCoroutine(CurrentTime());

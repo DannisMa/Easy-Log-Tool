@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public static class Log
 {
@@ -11,10 +12,11 @@ public static class Log
     #endregion
 
     public static Text TextUI = null;
+    public static TMP_Text TMPTextUI = null;
     public static Scrollbar Scrollbar = null;
     public static bool IsConsole = true;
 
-    private const string ColorTextFormate = "<color=\"#{0}\">{1}</color>\n";
+    private const string ColorTextFormate = "<color=#{0}>{1}</color>\n";
 
     public enum TextMode
     {
@@ -60,21 +62,27 @@ public static class Log
         var htmlColor = ColorUtility.ToHtmlStringRGB(color);
         message = String.Format(ColorTextFormate, htmlColor,
                          message);
-        if (TextUI != null)
+        switch (mode)
         {
-            switch (mode)
-            {
-                case TextMode.Append:
+            case TextMode.Append:
+                if(TextUI != null)
                     TextUI.text += message;
-                    break;
-                case TextMode.Write: 
-                    TextUI.text = message; 
-                    break;
-                default:
+                if(TMPTextUI != null)
+                    TMPTextUI.text += message;
+                break;
+            case TextMode.Write:
+                if (TextUI != null)
+                    TextUI.text = message;
+                if (TMPTextUI != null)
+                    TMPTextUI.text = message;
+                break;
+            default:
+                if (TextUI != null)
                     TextUI.text += message;
-                    break;
+                if (TMPTextUI != null)
+                    TMPTextUI.text += message;
+                break;
             }
-        }
         if (Scrollbar != null)
             Scrollbar.value = 0;
     }

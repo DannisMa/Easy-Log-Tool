@@ -334,6 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 927006506}
+  textTMP: {fileID: 2118039112}
   scrollbar: {fileID: 1236692782}
 --- !u!114 &1236692782 stripped
 MonoBehaviour:
@@ -414,6 +415,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2118039112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3988224192066541910, guid: cfa1724d2134bba40bed0f2ff4d421b6, type: 3}
+  m_PrefabInstance: {fileID: 8495929493090779060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8495929493090779060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -506,9 +518,41 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1393377982248071260, guid: cfa1724d2134bba40bed0f2ff4d421b6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393377982248071260, guid: cfa1724d2134bba40bed0f2ff4d421b6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988224192066541910, guid: cfa1724d2134bba40bed0f2ff4d421b6, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988224192066541910, guid: cfa1724d2134bba40bed0f2ff4d421b6, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3988224192066541910, guid: cfa1724d2134bba40bed0f2ff4d421b6, type: 3}
+      propertyPath: m_isOrthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988224192066541910, guid: cfa1724d2134bba40bed0f2ff4d421b6, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3988224192066541910, guid: cfa1724d2134bba40bed0f2ff4d421b6, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
     - target: {fileID: 4461442843150284622, guid: cfa1724d2134bba40bed0f2ff4d421b6, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7852259620323221471, guid: cfa1724d2134bba40bed0f2ff4d421b6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8721009985218435422, guid: cfa1724d2134bba40bed0f2ff4d421b6, type: 3}
       propertyPath: m_AnchorMax.x
